@@ -21,7 +21,7 @@
             </div>
             <div>
               <ul>
-                <li>Accueil2</li>
+                <li>Accueil</li>
                 <li>Réserver un vélo</li>
                 <li>Contact</li>
               </ul>
@@ -36,14 +36,31 @@
       </header>
 
       <!-- Slider Section -->
-      <section>
+      <section class="slider">
+
+        <h2>Fonctionnement de l'application</h2>
 
       </section>
 
       <!-- Map Section -->
         <section>
-          <div>
+          <div class="row">
             <div id="map"></div>
+            <div>
+              <form action="" method="get" class="form-example">
+                <div class="form-example">
+                  <label for="name">Entrer votre nom: </label>
+                  <input type="text" name="name" id="name" required>
+                </div>
+                <div class="form-example">
+                  <label for="prenom">Entrer votre prénom </label>
+                  <input type="text" name="prenom" id="prenom" required>
+                </div>
+                <div class="form-example">
+                  <input type="submit" value="Réserver" id="reserver">
+                </div>
+              </form>
+            </div>
           </div>
         </section>
     </main>
@@ -55,7 +72,7 @@
 
 
     
-    
+    <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/map.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaUxOoLfXI3uZyJFWi4dz-ed_GaFGf5AY&callback=initMap" async defer></script>
 

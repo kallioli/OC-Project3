@@ -5,9 +5,13 @@ html, body {
     font-family: 'Roboto', sans-serif;
   }
 
-  .container {
+.container {
     max-width: 1200px;
     margin: auto;
+}
+
+.row {
+    display: flex;
 }
 
 #top {
@@ -52,7 +56,7 @@ nav li {
     font-size: 1.2em;
 }
 
-
+/* Header Section */
 
 header {
     height: 70vh;
@@ -62,9 +66,18 @@ header {
     background-position: top right;
 }
 
+/* Slider Section */
+
+.slider h2 {
+    text-transform: uppercase;
+    text-decoration: underline;
+    font-weight: 500;
+}
 
 
+/* Map Section */
 #map {
-    height: 700px;
+    width: 70%;
+    height: 500px;
   }
 
