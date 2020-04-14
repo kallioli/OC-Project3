@@ -47,6 +47,16 @@
           <div class="row">
             <div id="map"></div>
             <div>
+              <div class="station-infos">
+                <ul>
+                  <li>Nom de la station: <span id="station-name"></span></li>
+                  <li>Status de la station: <span id="station-status"></span></li>
+                  <li>Adresse de la station: <span id="station-address"></span></li>
+                  <li>Nombre de vélos disponible: <span id="station-available-bike"></span></li>
+                  <li>Nombre de places total: <span id="station-total-stand"></span></li>
+                </ul>
+
+              </div>
               <form action="" method="get" class="form-example">
                 <div class="form-example">
                   <label for="name">Entrer votre nom: </label>
@@ -65,15 +75,9 @@
         </section>
     </main>
 
-
-
-
-
-
-
-    
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/map.js"></script>
+
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaUxOoLfXI3uZyJFWi4dz-ed_GaFGf5AY&callback=initMap" async defer></script>
 
   </body>
