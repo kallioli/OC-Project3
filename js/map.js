@@ -25,8 +25,19 @@ function initMap() {
 			});
 
 			marker.addListener("click", function() {
-				document.getElementById("station-name").innerHTML = marker.stationName;
-				document.getElementById("station-status").innerHTML = marker.stationStatus;
+
+				let stationNameFull = marker.stationName;
+				let stationNameCut = stationNameFull.split('-');
+				document.getElementById("station-name").innerHTML = stationNameCut[1];
+
+				if (marker.stationStatus == 'OPEN') {
+					document.getElementById("station-status").innerHTML = 'ouverte';
+					document.getElementById("station-status").className = 'station-open';
+				} else if (smarker.stationStatus == 'CLOSE') {
+					document.getElementById("station-status").innerHTML = 'fermée';
+					document.getElementById("station-status").className = 'station-close';
+				} 
+
 				document.getElementById("station-address").innerHTML = marker.stationAddress;
 				document.getElementById("station-available-bike").innerHTML = marker.stationBikeAvailable;
 				document.getElementById("station-total-stand").innerHTML = marker.stationTotalStand;

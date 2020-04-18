@@ -81,3 +81,14 @@ header {
     height: 500px;
   }
 
+.station-open {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: green;
+}
+
+.station-close {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: red;
+}
