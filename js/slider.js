@@ -1,6 +1,5 @@
 let slideIndex = 1;
 showSlides(slideIndex);
-console.log('tets');
 //lancement automatique des slides
 setInterval(()=>{
     showSlides(slideIndex);
@@ -20,10 +19,21 @@ document.getElementById('next').addEventListener('click',()=>{
 })
 
 //back keyboard
-
+document.addEventListener('keydown', function (e) {
+  if (e.which === 37 || e.keyCode === 37 ) {
+    showSlides(slideIndex);
+    slideIndex--;
+  }
+})
 
 //next keyboard 
 
+document.addEventListener('keydown', function (e) {
+  if (e.which === 39 || e.keyCode === 39 ) {
+    showSlides(slideIndex);
+    slideIndex++;
+  }
+})
 
 
 
