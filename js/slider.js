@@ -1,10 +1,32 @@
 let slideIndex = 1;
 showSlides(slideIndex);
+let pause=document.getElementById('btn-pause');
 //lancement automatique des slides
-setInterval(()=>{
+let slider=setInterval(()=>{
     showSlides(slideIndex);
     slideIndex++;
 },5000)
+
+let isPause=false;
+
+pause.addEventListener('click',(e)=>{
+  e.preventDefault();
+  if(!isPause){
+    isPause=true;
+    clearInterval(slider);
+    pause.innerHTML="Play";
+    
+  }else{
+    isPause=false;
+    pause.innerHTML="Pause";
+    slider=setInterval(()=>{
+      showSlides(slideIndex);
+      slideIndex++;
+    },5000)
+  }
+
+  
+})
 
 //back slide onclick
 document.getElementById('prev').addEventListener('click',()=>{
@@ -27,7 +49,6 @@ document.addEventListener('keydown', function (e) {
 })
 
 //next keyboard 
-
 document.addEventListener('keydown', function (e) {
   if (e.which === 39 || e.keyCode === 39 ) {
     showSlides(slideIndex);

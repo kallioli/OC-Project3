@@ -59,14 +59,19 @@ nav li {
 /* Header Section */
 
 header {
-    height: 70vh;
-    background-image: url(../img/hero.jpg);
+    margin-top: 80px;
+    height: 75vh;
+    background-image: url(../img/hero2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: top right;
+    background-position: center;
 }
 
 /* Slider Section */
+
+.slider {
+  margin-top: 70px;
+}
 
 .slider h2 {
     text-transform: uppercase;
