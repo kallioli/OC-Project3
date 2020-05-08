@@ -5,6 +5,7 @@
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fontawesome.css" />
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
   </head>
@@ -40,6 +41,12 @@
 
         <h2>Fonctionnement de l'application</h2>
 
+        <div class="separation-bar">
+          <hr>
+          <span class="title-circle"><i class="fas fa-circle"></i></span>
+          <hr>
+        </div>
+
         <!-- Slider container -->
         <div class="slider-container">
 
@@ -59,8 +66,12 @@
           </div>
 
           <!-- Next and previous buttons -->
-          <a class="prev" id="prev">&#10094;</a>
-          <a class="next" id="next">&#10095;</a>
+          <div class="slider-control">
+            <a class="prev" id="prev"><i class="fas fa-chevron-circle-left"></i></a>
+            <a class="pause" id="pause"><i id="btnPlayPause" class="fas fa-pause-circle"></i></a>
+            <a class="next" id="next"><i class="fas fa-chevron-circle-right"></i></a>
+          </div>
+          
         </div>
 
         <!-- The dots/circles -->

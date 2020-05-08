@@ -1,6 +1,6 @@
 let slideIndex = 1;
 showSlides(slideIndex);
-let pause=document.getElementById('btn-pause');
+let pause=document.getElementById('pause');
 //lancement automatique des slides
 let slider=setInterval(()=>{
     showSlides(slideIndex);
@@ -14,11 +14,11 @@ pause.addEventListener('click',(e)=>{
   if(!isPause){
     isPause=true;
     clearInterval(slider);
-    pause.innerHTML="Play";
+    document.getElementById("btnPlayPause").className = 'fas fa-play-circle';
     
   }else{
     isPause=false;
-    pause.innerHTML="Pause";
+    document.getElementById("btnPlayPause").className = 'fas fa-pause-circle';
     slider=setInterval(()=>{
       showSlides(slideIndex);
       slideIndex++;
