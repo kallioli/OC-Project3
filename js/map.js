@@ -37,12 +37,12 @@ function initMap() {
 				} else if (marker.stationStatus == 'CLOSE') {
 					document.getElementById("station-status").innerHTML = 'fermée';
 					document.getElementById("station-status").className = 'station-close';
-				} 
+				}
 
-				if (marker.stationBanking == 'true') {
-					document.getElementById("station-banking").style.color = "green";
-				} else if (marker.stationBanking == 'false') {
-					document.getElementById("station-banking").style.color = "red";
+				console.log(marker.stationBanking);
+				let banking = marker.stationBanking;
+				if (banking) {
+					document.getElementById("station-banking").style.color = "gray";
 				}
 
 				document.getElementById("station-address").innerHTML = marker.stationAddress;
@@ -50,15 +50,12 @@ function initMap() {
 				document.getElementById("station-total-stand").innerHTML = marker.stationTotalStand;
 				document.getElementById('info-container').style.width = "300px";
 				document.getElementById('station-details').style.display = "block";
-				});
+			});
 
-			let closeStatus;
-			if (document.getElementById('info-container').style.width == "0px") {
-				let closeStatus = 0;
-			} else if (document.getElementById('info-container').style.width == "300px") {
-				let closeStatus = 1;
-			}
-			console.log(closeStatus);
+			document.getElementById("close").addEventListener('click', (e)=> {
+				document.getElementById('info-container').style.width = "0px";
+				document.getElementById('station-details').style.display = "none";
+			});
 			
 		}
 	});

@@ -112,7 +112,7 @@
           <div id="map"></div>
           <div id="info-container">
             <div class="close">
-              <i class="fas fa-times"></i>
+              <i id="close" class="fas fa-times"></i>
             </div>
 
             <div id="station-details">
@@ -135,16 +135,43 @@
         </div>
       </section>
 
+      <!-- Canvas Section -->
+      <section id="canvas-section">
+        <div class="container">
+          <div class="canvas-container">
+            <canvas id="sig-canvas">
+              Get a better browser, bro.
+            </canvas>
+
+            <div class="form-container">
+
+              <div class="form-name">
+                <label for="name">Nom :</label>
+                <input type="text" name="name" id="name" placeholder="Entrer votre nom..." required>
+              </div>
+              <div class="form-surname">
+                <label for="prenom">Prénom :</label>
+                <input type="text" name="prenom" id="prenom" placeholder="Entrer votre prénom..." required>
+              </div>
+              <div class="btn-control">
+                <button class="canvas-btn-reserve" id="sig-submitBtn">Réserver</button>
+                <button class="canvas-btn-clear" id="sig-clearBtn">Effacer</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <form action="" method="get" class="form-example">
 
         <div class="form-example">
-          <label for="name">Entrer votre nom: </label>
-          <input type="text" name="name" id="name" required>
+          <label for="name">Nom:</label>
+          <input type="text" name="name" id="name" placeholder="Enter votre nom"required>
         </div>
 
         <div class="form-example">
-          <label for="prenom">Entrer votre prénom </label>
-          <input type="text" name="prenom" id="prenom" required>
+          <label for="prenom">Prénom:</label>
+          <input type="text" name="prenom" id="prenom" placeholder="Enter votre prénom" required>
         </div>
 
         <div class="form-example">
@@ -162,6 +189,7 @@
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/slider.js"></script>
     <script type="text/javascript" src="js/map.js"></script>
+    <script type="text/javascript" src="js/canvas.js"></script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaUxOoLfXI3uZyJFWi4dz-ed_GaFGf5AY&callback=initMap" async defer></script>
 
