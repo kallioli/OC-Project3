@@ -18,6 +18,10 @@ html, body {
     padding-top: 20px;
 }
 
+.colored-section {
+  background-color: rgb(245, 245, 245);
+}
+
 .separation-bar {
   margin: auto;
   text-align: center;
@@ -93,26 +97,24 @@ header {
 
 /* Slider Section */
 
-.slider {
-  margin-top: 70px;
+#slider-section {
+  margin: 55px auto;
 }
 
-.slider h2 {
+#slider-section h2 {
   text-transform: uppercase;
   font-weight: 500;
   text-align: center;
   font-size: 1.8em;
   margin-bottom: 10px;
-  }
+}
 
-/* Slideshow container */
 .slider-container {
   max-width: 1000px;
   position: relative;
   margin: 30px auto ;
 }
 
-/* Hide the images by default */
 .slide {
   display: none;
   flex-direction: row;
@@ -124,6 +126,7 @@ header {
 
 .slide-text {
   margin: auto;
+  text-align: left;
 }
 
 .slide-text-title {
@@ -140,14 +143,12 @@ header {
   text-align: center;
 }
 
-/* Next & previous buttons */
 .prev, .next, .pause {
 color: #f07826;
 font-size: 30px;
 padding: 0 15px;
 }
 
-/* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover, .pause:hover {
   color: black;
 }
@@ -170,21 +171,130 @@ padding: 0 15px;
   to {opacity: 1}
 }
 
+/* Call to Action Section */
+
+#cta-section {
+  padding: 30px 0;
+  text-align: center;
+}
+
+.cta-icon a{
+  font-size: 3em;
+  color: #f07826;
+}
+
+.cta-icon a:hover{
+  font-size: 3em;
+  color: black;
+}
+
 
 /* Map Section */
+
+#map-section {
+  padding: 55px 0;
+}
+
+#map-section h2 {
+  text-transform: uppercase;
+  font-weight: 500;
+  text-align: center;
+  font-size: 1.8em;
+  margin-bottom: 10px;
+}
+
+.map-container {
+  display: flex;
+  flex-direction: row;
+  margin: 30px auto;
+}
+
 #map {
-    width: 70%;
-    height: 500px;
+    width: 100%;
+    height: 80vh;
+    position: absolute;
   }
 
+#info-container {
+  display: flex;
+  background-color: white;
+  width: 0px;
+  height: 78vh;
+  position: relative;
+  transition: 0.3s;
+  top: 1vh;
+  left: 0;
+  text-align: center;
+  align-items: center;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+#station-details {
+  display: none;
+  margin: auto;
+  padding: 15px;
+}
+
+#info-container h2 {
+  font-size: 1.3em;
+  font-weight: 300;
+}
+
+#info-container h3 {
+  font-size: 1.3em;
+}
+
+.station-details p {
+  font-weight: 100;
+}
+
+#station-available-bike {
+  font-weight: 100;
+}
+
+#station-total-stand {
+  padding-left: 10px;
+  font-weight: 100;
+}
+
+#station-banking {
+  padding-left: 25px;
+  color: black;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: red;
+  font-size: 1.5em;
+}
+
+.close:hover {
+  color: palevioletred;
+}
+
 .station-open {
-    text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 400;
     color: green;
 }
 
 .station-close {
-    text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 400;
     color: red;
+}
+
+.station-btn-reserve {
+  border: 1px solid;
+  width: fit-content;
+  margin: 20px auto;
+  padding: 5px 10px;
+  background-color: #f07826;
+  color: white;
+}
+
+.station-btn-reserve:hover {
+  background-color: black;
 }
