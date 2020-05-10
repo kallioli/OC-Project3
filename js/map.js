@@ -39,10 +39,11 @@ function initMap() {
 					document.getElementById("station-status").className = 'station-close';
 				}
 
-				console.log(marker.stationBanking);
 				let banking = marker.stationBanking;
 				if (banking) {
-					document.getElementById("station-banking").style.color = "gray";
+					document.getElementById("station-banking").style.color = "black";
+				} else if (!banking) {
+					document.getElementById("station-banking").style.color = "grey";
 				}
 
 				document.getElementById("station-address").innerHTML = marker.stationAddress;
@@ -55,6 +56,10 @@ function initMap() {
 			document.getElementById("close").addEventListener('click', (e)=> {
 				document.getElementById('info-container').style.width = "0px";
 				document.getElementById('station-details').style.display = "none";
+			});
+
+			document.getElementById("station-btn").addEventListener('click', (e)=> {
+				document.getElementById("canvas-section").style.display = "block";
 			});
 			
 		}

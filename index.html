@@ -128,7 +128,7 @@
                 <span id="station-banking">
                   <i class="far fa-credit-card"></i>
                 </span>
-                <p class="station-btn-reserve">Réserver</p>
+                <a href="#canvas-section" id="station-btn" class="station-btn-reserve">Réserver</a>
               </div>
             </div>
           </div>
@@ -145,18 +145,20 @@
 
             <div class="form-container">
 
-              <div class="form-name">
-                <label for="name">Nom :</label>
-                <input type="text" name="name" id="name" placeholder="Entrer votre nom..." required>
-              </div>
-              <div class="form-surname">
-                <label for="prenom">Prénom :</label>
-                <input type="text" name="prenom" id="prenom" placeholder="Entrer votre prénom..." required>
-              </div>
-              <div class="btn-control">
-                <button class="canvas-btn-reserve" id="sig-submitBtn">Réserver</button>
-                <button class="canvas-btn-clear" id="sig-clearBtn">Effacer</button>
-              </div>
+              <form action="" method="get" class="reserve-form">
+                <div class="form-name">
+                  <label for="name">Nom :</label>
+                  <input type="text" name="name" id="name" placeholder="Entrer votre nom..." required>
+                </div>
+                <div class="form-surname">
+                  <label for="prenom">Prénom :</label>
+                  <input type="text" name="prenom" id="prenom" placeholder="Entrer votre prénom..." required>
+                </div>
+                <div class="btn-control">
+                  <button class="canvas-btn-reserve" id="sig-submitBtn">Réserver</button>
+                  <button class="canvas-btn-clear" id="sig-clearBtn">Effacer</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>

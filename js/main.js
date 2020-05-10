@@ -8,7 +8,7 @@ if (lnom && lprenom) {
     nom.value=lnom;
     prenom.value=lprenom;
 }
-document.getElementById('reserver').addEventListener('click', (e)=> {
+document.getElementById('sig-submitBtn').addEventListener('click', (e)=> {
     e.preventDefault();
     
     localStorage.setItem('nom', nom.value);

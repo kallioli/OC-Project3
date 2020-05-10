@@ -3,6 +3,7 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
+    scroll-behavior: smooth;
   }
 
 .container {
@@ -288,12 +289,14 @@ padding: 0 15px;
 }
 
 .station-btn-reserve {
+  display: block;
   border: 1px solid;
   width: fit-content;
   margin: 20px auto;
   padding: 5px 10px;
   background-color: #f07826;
   color: white;
+  text-decoration: none;
 }
 
 .station-btn-reserve:hover {
@@ -304,6 +307,7 @@ padding: 0 15px;
 
 #canvas-section {
   padding: 30px 0;
+  display: none;
 }
 
 .canvas-container {
@@ -340,6 +344,11 @@ padding: 0 15px;
 
 .form-container label {
   width: 30%;
+}
+
+.reserve-form {
+  width: 100%;
+  text-align: center;
 }
 
 .form-name {
