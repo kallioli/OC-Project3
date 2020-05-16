@@ -139,9 +139,9 @@
       <section id="canvas-section">
         <div class="container">
           <div class="canvas-container">
-            <canvas id="sig-canvas">
-              Get a better browser, bro.
-            </canvas>
+            <canvas id="sig-canvas"></canvas>
+
+            <canvas id="blank"></canvas>
 
             <div class="form-container">
 
@@ -164,34 +164,28 @@
         </div>
       </section>
 
-      <form action="" method="get" class="form-example">
-
-        <div class="form-example">
-          <label for="name">Nom:</label>
-          <input type="text" name="name" id="name" placeholder="Enter votre nom"required>
+      <section id=valid-section>
+        <div class="container">
+          <div class="valid-container">
+            <h3>Votre réservation est validé</h3>
+            <p>Votre vélo est réservé à la station</p>
+            <p id="resume-firstname"></p>
+            <p id="timer"></p>
+          </div>
         </div>
+      </section>
 
-        <div class="form-example">
-          <label for="prenom">Prénom:</label>
-          <input type="text" name="prenom" id="prenom" placeholder="Enter votre prénom" required>
-        </div>
-
-        <div class="form-example">
-          <input type="submit" value="Réserver" id="reserver">
-        </div>
-
-      </form>
-
-      <p id="timer"></p>
+      
 
 
       
     </main>
 
-    <script type="text/javascript" src="js/main.js"></script>
+   
     <script type="text/javascript" src="js/slider.js"></script>
     <script type="text/javascript" src="js/map.js"></script>
     <script type="text/javascript" src="js/canvas.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaUxOoLfXI3uZyJFWi4dz-ed_GaFGf5AY&callback=initMap" async defer></script>
 

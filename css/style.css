@@ -369,6 +369,10 @@ padding: 0 15px;
   margin: 5px;
 }
 
+#blank {
+  display: none;
+}
+
 .canvas-btn-reserve {
   background-color: #f07826;
   border: 0 solid;

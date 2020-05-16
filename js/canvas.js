@@ -125,10 +125,5 @@
       sigText.innerHTML = "Data URL for your signature will go here!";
       sigImage.setAttribute("src", "");
     }, false);
-    submitBtn.addEventListener("click", function(e) {
-      var dataUrl = canvas.toDataURL();
-      sigText.innerHTML = dataUrl;
-      sigImage.setAttribute("src", dataUrl);
-    }, false);
   
   })();
