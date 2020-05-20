@@ -13,7 +13,7 @@
     var canvas = document.getElementById("sig-canvas");
     var ctx = canvas.getContext("2d");
     ctx.strokeStyle = "#222222";
-    ctx.lineWidth = 4;
+    ctx.lineWidth = 1;
   
     var drawing = false;
     var mousePos = {
@@ -122,8 +122,6 @@
     var submitBtn = document.getElementById("sig-submitBtn");
     clearBtn.addEventListener("click", function(e) {
       clearCanvas();
-      sigText.innerHTML = "Data URL for your signature will go here!";
-      sigImage.setAttribute("src", "");
     }, false);
   
   })();

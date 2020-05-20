@@ -100,7 +100,7 @@
 
       <section id="map-section">
         <div class="container">
-          <h2>Fonctionnement de l'application</h2>
+          <h2>Réserver un vélo</h2>
           <div class="separation-bar">
             <hr>
             <span class="title-circle"><i class="fas fa-circle"></i></span>
@@ -155,7 +155,7 @@
                   <input type="text" name="prenom" id="prenom" placeholder="Entrer votre prénom..." required>
                 </div>
                 <div class="btn-control">
-                  <button class="canvas-btn-reserve" id="sig-submitBtn">Réserver</button>
+                  <button class="canvas-btn-reserve" id="sig-submitBtn"><a href="#valid-section">Réserver</a></button>
                   <button class="canvas-btn-clear" id="sig-clearBtn">Effacer</button>
                 </div>
               </form>
@@ -168,9 +168,10 @@
         <div class="container">
           <div class="valid-container">
             <h3>Votre réservation est validé</h3>
-            <p>Votre vélo est réservé à la station</p>
-            <p id="resume-firstname"></p>
+            <p>Votre vélo est réservé à la station <span id="cont-nameStation"></span></p>
+            <p id="cont-address"></p>
             <p id="timer"></p>
+            <button id="btn-cancel">Annuler la réservation</button> 
           </div>
         </div>
       </section>
