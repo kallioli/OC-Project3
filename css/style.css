@@ -308,6 +308,7 @@ padding: 0 15px;
 #canvas-section {
   padding: 30px 0;
   display: none;
+  transition: 0.3s;
 }
 
 .canvas-container {
@@ -433,4 +434,11 @@ padding: 0 15px;
 
 #btn-cancel:hover {
   background-color: black;
+}
+
+footer {
+  height: 100px;
+  background-color: black;
+  color: #fff;
+  display: flex;
 }
