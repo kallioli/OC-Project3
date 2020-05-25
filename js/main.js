@@ -29,7 +29,6 @@ function startTimer(enddate){
     })
 }
 
-
 if (sAddress && sStationName && sEndDate){
     if (sEndDate >= new Date().getTime){
         sessionStorage.clear();
@@ -39,7 +38,6 @@ if (sAddress && sStationName && sEndDate){
 
     }
 }
-
 
 if (lnom && lprenom) {
     nom.value=lnom;
