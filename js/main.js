@@ -65,3 +65,9 @@ document.getElementById('sig-submitBtn').addEventListener('click', (e)=> {
 }
 });
 
+document.getElementById('btn-cancel').addEventListener('click', (e)=>{
+    sessionStorage.clear();
+    clearInterval(timer);
+
+});
+
