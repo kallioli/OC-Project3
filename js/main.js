@@ -10,10 +10,10 @@ var contNameUser = document.getElementById('cont-nameUser')
 var sAddress = sessionStorage.getItem('address');
 var sStationName = sessionStorage.getItem('stationName');
 var sEndDate = sessionStorage.getItem('endDate');
-
+let timer;
 
 function startTimer(enddate){
-    let timer = setInterval(()=> {
+    timer = setInterval(()=> {
         let now = new Date().getTime();
         let delta = enddate- now
         let minutes = Math.floor((delta % (1000 * 60 * 60)) / (1000 * 60));
@@ -34,8 +34,6 @@ if (sAddress && sStationName && sEndDate){
         sessionStorage.clear();
     }else{
         startTimer(sEndDate);
-       
-
     }
 }
 
@@ -68,6 +66,8 @@ document.getElementById('sig-submitBtn').addEventListener('click', (e)=> {
 document.getElementById('btn-cancel').addEventListener('click', (e)=>{
     sessionStorage.clear();
     clearInterval(timer);
+    document.getElementById('valid-section').style.display = "none";
+    document.getElementById('canvas-section').style.display = "none";
 
 });
 
