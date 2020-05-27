@@ -15,7 +15,7 @@
 
       <!-- Nav Section -->
       <div id="top">
-        <nav>
+        <nav class="desktop-nav">
           <div class="container header-menu">
             <div class="logo">
               <img src="img/logo.gif" alt="Logo Bicloo Nantes">
@@ -29,7 +29,23 @@
             </div>
           </div>
         </nav>
+
+        <!-- Mobile Navigation Menu -->
+		    <nav class="mobile-nav container">
+			    <a href="#top" class="active"><img src="img/logo.gif" alt="Logo Bicloo Nantes"></a>
+			    <div id="myLinks">
+	  			  <a href="#services">Services</a>
+	  			  <a href="#projects">Portfolio</a>
+	  			  <a href="#contact">Contact</a>
+			    </div>
+			    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+	  			  <i class="fa fa-bars"></i>
+			    </a>
+  		  </div>
       </div>
+
+      
+
 
       <!-- Header Section -->
       <header>
@@ -179,7 +195,7 @@
 
       <footer>
         <div class="container">
-          <p>© 2020 ALLIOLI Kévin - Projet 3 Openclassrooms</p>
+          <p class="footer-text">© 2020 ALLIOLI Kévin - Projet 3 Openclassrooms</p>
         </div>
       </footer>
 
@@ -187,7 +203,7 @@
       
     </main>
 
-   
+    <script type="text/javascript" src="js/mobile.js"></script>
     <script type="text/javascript" src="js/slider.js"></script>
     <script type="text/javascript" src="js/map.js"></script>
     <script type="text/javascript" src="js/canvas.js"></script>

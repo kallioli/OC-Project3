@@ -442,3 +442,7 @@ footer {
   color: #fff;
   display: flex;
 }
+
+.footer-text {
+  text-align: center;
+}
