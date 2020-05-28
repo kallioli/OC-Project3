@@ -26,6 +26,7 @@ function startTimer(enddate){
         contNameUser.innerHTML = lnom+' '+lprenom;
         contentTimer.innerHTML = 'Temps restant : '+minutes+':'+seconds;
         document.getElementById('valid-section').style.display = "block";
+        document.getElementById('canvas-section').style.display = "none";
     })
 }
 

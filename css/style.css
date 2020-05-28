@@ -85,6 +85,39 @@ nav li {
     font-size: 1.2em;
 }
 
+nav a {
+  text-decoration: none;
+  color: black;
+  font-weight: 400;
+}
+
+nav a:hover {
+  color: black;
+}
+
+
+a.left
+{
+    position: relative;
+}
+
+a.left:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: -5px;
+  left: 0;
+  background-color: #f07826;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+a.left:hover:before {
+  visibility: visible;
+  width: 100%;
+}
+
 /* Header Section */
 
 header {
