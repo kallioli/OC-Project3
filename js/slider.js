@@ -1,6 +1,7 @@
 let slideIndex = 1;
 showSlides(slideIndex);
 let pause=document.getElementById('pause');
+
 //lancement automatique des slides
 let slider=setInterval(()=>{
     showSlides(slideIndex);
@@ -24,7 +25,6 @@ pause.addEventListener('click',(e)=>{
       slideIndex++;
     },5000)
   }
-
   
 })
 
@@ -55,8 +55,6 @@ document.addEventListener('keydown', function (e) {
     slideIndex++;
   }
 })
-
-
 
 function plusSlides(n) {
   showSlides(slideIndex += n);
