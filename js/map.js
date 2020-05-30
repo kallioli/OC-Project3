@@ -59,7 +59,7 @@ function initMap() {
 			});
 
 			document.getElementById("station-btn").addEventListener('click', (e)=> {
-				document.getElementById("canvas-section").style.display = "block";
+			document.getElementById("canvas-section").style.display = "block";
 			});
 			
 		}

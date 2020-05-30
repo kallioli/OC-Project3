@@ -1,74 +1,104 @@
-var nom = document.getElementById('name');
-var prenom = document.getElementById('prenom');
-var lnom = localStorage.getItem('nom');
-var lprenom = localStorage.getItem('prenom');
-var contentTimer=document.getElementById('timer');
-var canvas = document.getElementById("sig-canvas");
-var contAddress = document.getElementById("cont-address");
-var contStation = document.getElementById('cont-nameStation');
-var contNameUser = document.getElementById('cont-nameUser')
-var sAddress = sessionStorage.getItem('address');
-var sStationName = sessionStorage.getItem('stationName');
-var sEndDate = sessionStorage.getItem('endDate');
-let timer;
+class Main{
 
-function startTimer(enddate){
-    timer = setInterval(()=> {
-        let now = new Date().getTime();
-        let delta = enddate- now
-        let minutes = Math.floor((delta % (1000 * 60 * 60)) / (1000 * 60));
-        let seconds = Math.floor((delta % (1000 * 60)) / 1000);
-        if(seconds<10){
-            seconds='0'+seconds;
+    constructor(timeReservation){
+        this.nom = document.getElementById('name');
+        this.prenom = document.getElementById('prenom');
+        this.lnom = localStorage.getItem('nom');
+        this.lprenom = localStorage.getItem('prenom');
+        this.contentTimer=document.getElementById('timer');
+        this.canvas = document.getElementById("sig-canvas");
+        this.contAddress = document.getElementById("cont-address");
+        this.contStation = document.getElementById('cont-nameStation');
+        this.contNameUser = document.getElementById('cont-nameUser')
+        this.sAddress = sessionStorage.getItem('address');
+        this.sStationName = sessionStorage.getItem('stationName');
+        this.sEndDate = sessionStorage.getItem('endDate');
+        this.timer; 
+        this.timeReservation=timeReservation;
+
+        if (this.sAddress && this.sStationName && this.sEndDate){
+            if (this.sEndDate >= new Date().getTime){
+                sessionStorage.clear();
+            }else{
+                this.startTimer(this.sEndDate);
+            }
         }
-        contStation.innerHTML = sStationName;
-        contAddress.innerHTML = sAddress;
-        contNameUser.innerHTML = lnom+' '+lprenom;
-        contentTimer.innerHTML = 'Temps restant : '+minutes+':'+seconds;
-        document.getElementById('valid-section').style.display = "block";
-        document.getElementById('canvas-section').style.display = "none";
-    })
-}
+        
+        if (this.lnom && this.lprenom) {
+            this.nom.value=this.lnom;
+            this.prenom.value=this.lprenom;
+        }
+        this.storeData();
 
-if (sAddress && sStationName && sEndDate){
-    if (sEndDate >= new Date().getTime){
-        sessionStorage.clear();
-    }else{
-        startTimer(sEndDate);
+        document.getElementById('sig-submitBtn').addEventListener('click', (e)=> {
+            e.preventDefault();
+            this.initReservation();
+           
+        });
+        document.getElementById('btn-cancel').addEventListener('click', (e)=>{
+            this.cancelReservation();
+
+        });
     }
+    startTimer(enddate){
+        this.timer = setInterval(()=> {
+            this.now = new Date().getTime();
+            this.delta = enddate - this.now
+            this.minutes = Math.floor((this.delta % (1000 * 60 * 60)) / (1000 * 60));
+            this.seconds = Math.floor((this.delta % (1000 * 60)) / 1000);
+            if(this.seconds<10){
+                this.seconds='0'+this.seconds;
+            }
+            this.contStation.innerHTML = this.sStationName;
+            this.contAddress.innerHTML = this.sAddress;
+            this.contNameUser.innerHTML = this.lnom+' '+this.lprenom;
+            this.contentTimer.innerHTML = 'Temps restant : '+this.minutes+':'+this.seconds;
+            document.getElementById('valid-section').style.display = "block";
+            document.getElementById('canvas-section').style.display = "none";
+        })
+    }
+    storeData(){
+        //localStorage
+        localStorage.setItem('nom', this.nom.value);
+        localStorage.setItem('prenom', this.prenom.value);
+        //session strorage
+        sessionStorage.setItem('stationName',document.getElementById('station-name').innerHTML);
+        sessionStorage.setItem('address',document.getElementById('station-address').innerHTML);
+        sessionStorage.setItem('endDate', this.endDate);
+    }
+    initReservation(){
+        if(this.canvas.toDataURL() == document.getElementById('blank').toDataURL()){
+            alert('Signer pour valider votre réservation!');
+        }else if(this.nom.value=="" || this.prenom.value==""){
+            alert ('Entrer votre nom ou prenom');
+        }else{
+
+        this.storeData();
+        
+        this.endDate = new Date().getTime()+this.timeReservation*60*1000;
+        
+
+        this.startTimer(this.endDate);
+        }
+    }
+    cancelReservation(){
+        sessionStorage.clear();
+        clearInterval(this.timer);
+        document.getElementById('valid-section').style.display = "none";
+        document.getElementById('canvas-section').style.display = "none";
+    }
+
 }
 
-if (lnom && lprenom) {
-    nom.value=lnom;
-    prenom.value=lprenom;
-}
+let main= new Main(20);
 
-document.getElementById('sig-submitBtn').addEventListener('click', (e)=> {
-    e.preventDefault();
 
-    if(canvas.toDataURL() == document.getElementById('blank').toDataURL()){
-        alert('Signer pour valider votre réservation!');
-    }else if(nom.value=="" || prenom.value==""){
-        alert ('Entrer votre nom ou prenom');
-    }else{
 
-    localStorage.setItem('nom', nom.value);
-    localStorage.setItem('prenom', prenom.value);
-    
-    let endDate = new Date().getTime()+20*60*1000;
-    sessionStorage.setItem('stationName',document.getElementById('station-name').innerHTML);
-    sessionStorage.setItem('address',document.getElementById('station-address').innerHTML);
-    sessionStorage.setItem('endDate', endDate);
 
-    startTimer(endDate);
-}
-});
 
-document.getElementById('btn-cancel').addEventListener('click', (e)=>{
-    sessionStorage.clear();
-    clearInterval(timer);
-    document.getElementById('valid-section').style.display = "none";
-    document.getElementById('canvas-section').style.display = "none";
 
-});
+
+
+
+
 
