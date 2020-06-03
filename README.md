@@ -1,7 +1,7 @@
 # Projet3 OpenClassrooms
 ## Concevoir une carte interactive de location de vélos
 
-### Projet Validé :white_check_mark:
+### Projet En Cours :checkbox:
 https://rentabike.kevinallioli.com/
 
 ### Énoncé
