@@ -1,7 +1,7 @@
 # Projet3 OpenClassrooms
 ## Concevoir une carte interactive de location de vélos
 
-### Projet En Cours :check_mark_in_box:
+### Projet En Cours :ballot_box_with_check:
 https://rentabike.kevinallioli.com/
 
 ### Énoncé
@@ -11,7 +11,7 @@ de nombreuses stations dans la ville. L'utilisateur doit pouvoir en réserver un
 reste des vélos disponibles à la station !). La réservation sera temporairement enregistrée sur le navigateur du visiteur.
 
 Vous développerez l'application entièrement en JavaScript en affichant une carte à l'aide de l’API GoogleMaps avec la 
-liste des stations de location de vélos disponibles dans la ville de Lyon.
+liste des stations de location de vélos disponibles dans la ville de Nantes.
 
 Le code JavaScript doit entièrement être conçu en programmation orientée objet. 
 
