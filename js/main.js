@@ -14,7 +14,7 @@ class Main{
         this.sStationName = sessionStorage.getItem('stationName');
         this.sEndDate = sessionStorage.getItem('endDate');
         this.timer; 
-        this.timeReservation=timeReservation;
+        this.timeReservation = timeReservation;
 
         if (this.sAddress && this.sStationName && this.sEndDate){
             if (this.sEndDate >= new Date().getTime){
@@ -70,7 +70,7 @@ class Main{
         if(this.canvas.toDataURL() == document.getElementById('blank').toDataURL()){
             alert('Signer pour valider votre réservation!');
         }else if(this.nom.value=="" || this.prenom.value==""){
-            alert ('Entrer votre nom ou prenom');
+            alert ('Entrer votre nom ou prénom');
         }else{
 
         this.storeData();
@@ -87,18 +87,6 @@ class Main{
         document.getElementById('valid-section').style.display = "none";
         document.getElementById('canvas-section').style.display = "none";
     }
-
 }
 
-let main= new Main(20);
-
-
-
-
-
-
-
-
-
-
-
+let main = new Main(20);

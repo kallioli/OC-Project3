@@ -1,78 +1,88 @@
-let slideIndex = 1;
-showSlides(slideIndex);
-let pause=document.getElementById('pause');
+class Slider {
 
-//lancement automatique des slides
-let slider=setInterval(()=>{
-    showSlides(slideIndex);
-    slideIndex++;
-},5000)
+  constructor() {
+    this.slideIndex = 1;
+    this.pause = document.getElementById('pause');
+    this.isPause = false;
+    this.i;
+    this.slides = document.getElementsByClassName("slide");
 
-let isPause=false;
+    this.showSlides(this.slideIndex);
 
-pause.addEventListener('click',(e)=>{
-  e.preventDefault();
-  if(!isPause){
-    isPause=true;
-    clearInterval(slider);
-    document.getElementById("btnPlayPause").className = 'fas fa-play-circle';
-    
-  }else{
-    isPause=false;
-    document.getElementById("btnPlayPause").className = 'fas fa-pause-circle';
-    slider=setInterval(()=>{
-      showSlides(slideIndex);
-      slideIndex++;
+    // Launch slides automatically
+    this.slider=setInterval(()=>{
+      this.next();
     },5000)
+
+    // Play/Pause slider management
+    this.pause.addEventListener('click',(e)=>{
+      e.preventDefault();
+      if(!this.isPause){
+        this.isPause=true;
+        clearInterval(this.slider);
+        document.getElementById("btnPlayPause").className = 'fas fa-play-circle';
+        
+      }else{
+        this.isPause=false;
+        document.getElementById("btnPlayPause").className = 'fas fa-pause-circle';
+        this.slider=setInterval(()=>{
+          this.next();
+        },5000)
+      }
+      
+    })
+
+    // previous slide onclick
+    document.getElementById('prev').addEventListener('click',()=>{
+      this.prev();
+    })
+
+    // next slide onclick
+    document.getElementById('next').addEventListener('click',()=>{
+      this.next();
+    })
+
+    // previous slide keyboard
+    document.addEventListener('keydown', (e)=> {
+    if (e.which === 37 || e.keyCode === 37 ) {
+      this.prev();
+    }
+    })
+    
+    // next slide keyboard 
+    document.addEventListener('keydown', (e)=> {
+      if (e.which === 39 || e.keyCode === 39 ) {
+        this.next();
+      }
+    })
+
   }
-  
-})
 
-//back slide onclick
-document.getElementById('prev').addEventListener('click',()=>{
-    showSlides(slideIndex);
-    slideIndex--;
-})
-
-//nextslide onclick
-document.getElementById('next').addEventListener('click',()=>{
-    showSlides(slideIndex);
-    slideIndex++;
-})
-
-//back keyboard
-document.addEventListener('keydown', function (e) {
-  if (e.which === 37 || e.keyCode === 37 ) {
-    showSlides(slideIndex);
-    slideIndex--;
+  // Display the slider
+  showSlides(n) {
+    if (n > this.slides.length) {
+      this.slideIndex = 1
+    }
+    if (n < 1) {
+      this.slideIndex = this.slides.length
+    }
+    for (this.i = 0; this.i < this.slides.length; this.i++) {
+      this.slides[this.i].style.display = "none";
+    }
+    this.slides[this.slideIndex-1].style.display = "flex";
   }
-})
 
-//next keyboard 
-document.addEventListener('keydown', function (e) {
-  if (e.which === 39 || e.keyCode === 39 ) {
-    showSlides(slideIndex);
-    slideIndex++;
+  // Previous slide function
+  prev() {
+    this.showSlides(this.slideIndex);
+    this.slideIndex--;
   }
-})
 
-function plusSlides(n) {
-  showSlides(slideIndex += n);
+  // Next slide function
+  next() {
+    this.showSlides(this.slideIndex);
+    this.slideIndex++;
+  }
 }
 
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("slide");
- 
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-  }
-  
-  slides[slideIndex-1].style.display = "flex";
-}
+let slider2 = new Slider();
