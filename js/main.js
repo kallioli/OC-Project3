@@ -23,7 +23,7 @@ class Main{
                 this.startTimer(this.sEndDate);
             }
         }
-        
+
         if (this.lnom && this.lprenom) {
             this.nom.value=this.lnom;
             this.prenom.value=this.lprenom;
