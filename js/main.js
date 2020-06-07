@@ -5,7 +5,7 @@ class Main{
         this.prenom = document.getElementById('prenom');
         this.lnom = localStorage.getItem('nom');
         this.lprenom = localStorage.getItem('prenom');
-        this.contentTimer=document.getElementById('timer');
+        this.contentTimer = document.getElementById('timer');
         this.canvas = document.getElementById("sig-canvas");
         this.contAddress = document.getElementById("cont-address");
         this.contStation = document.getElementById('cont-nameStation');
@@ -36,14 +36,14 @@ class Main{
         document.getElementById('sig-submitBtn').addEventListener('click', (e)=> {
             e.preventDefault();
             this.initReservation();
-           
         });
+
         // Cancel reservation button
         document.getElementById('btn-cancel').addEventListener('click', (e)=>{
             this.cancelReservation();
-
         });
     }
+
     // Function that initiates the timer
     startTimer(enddate){
         this.timer = setInterval(()=> {
@@ -62,6 +62,7 @@ class Main{
             document.getElementById('canvas-section').style.display = "none";
         })
     }
+
     // Function that manage LocalStorage API and SessionStorage API 
     storeData(){
         //localStorage
@@ -85,6 +86,7 @@ class Main{
             this.startTimer(this.endDate);
         }
     }
+    
     // function that cancels a reservation
     cancelReservation(){
         sessionStorage.clear();
