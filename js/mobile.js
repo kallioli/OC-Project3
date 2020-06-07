@@ -5,10 +5,10 @@ class MobileMenu {
   }
 
   myFunction() {
-    if (x.style.display === "block") {
-      x.style.display = "none";
+    if (this.x.style.display === "block") {
+      this.x.style.display = "none";
     } else {
-      x.style.display = "block";
+      this.x.style.display = "block";
     }
   }
 }
