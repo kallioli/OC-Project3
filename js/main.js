@@ -16,6 +16,7 @@ class Main{
         this.timer; 
         this.timeReservation = timeReservation;
 
+        // Check if there is a valid session in the SessionStorage API
         if (this.sAddress && this.sStationName && this.sEndDate){
             if (this.sEndDate >= new Date().getTime){
                 sessionStorage.clear();
@@ -24,22 +25,26 @@ class Main{
             }
         }
 
+        // Check if name and firstname are in LocalStorage API
         if (this.lnom && this.lprenom) {
             this.nom.value=this.lnom;
             this.prenom.value=this.lprenom;
         }
         this.storeData();
 
+        // Reservation validation button
         document.getElementById('sig-submitBtn').addEventListener('click', (e)=> {
             e.preventDefault();
             this.initReservation();
            
         });
+        // Cancel reservation button
         document.getElementById('btn-cancel').addEventListener('click', (e)=>{
             this.cancelReservation();
 
         });
     }
+    // Function that initiates the timer
     startTimer(enddate){
         this.timer = setInterval(()=> {
             this.now = new Date().getTime();
@@ -57,6 +62,7 @@ class Main{
             document.getElementById('canvas-section').style.display = "none";
         })
     }
+    // Function that manage LocalStorage API and SessionStorage API 
     storeData(){
         //localStorage
         localStorage.setItem('nom', this.nom.value);
@@ -66,21 +72,20 @@ class Main{
         sessionStorage.setItem('address',document.getElementById('station-address').innerHTML);
         sessionStorage.setItem('endDate', this.endDate);
     }
+
+    // Function that verify and validate a reservation
     initReservation(){
         if(this.canvas.toDataURL() == document.getElementById('blank').toDataURL()){
             alert('Signer pour valider votre réservation!');
         }else if(this.nom.value=="" || this.prenom.value==""){
             alert ('Entrer votre nom ou prénom');
         }else{
-
-        this.storeData();
-        
-        this.endDate = new Date().getTime()+this.timeReservation*60*1000;
-        
-
-        this.startTimer(this.endDate);
+            this.storeData();
+            this.endDate = new Date().getTime()+this.timeReservation*60*1000;
+            this.startTimer(this.endDate);
         }
     }
+    // function that cancels a reservation
     cancelReservation(){
         sessionStorage.clear();
         clearInterval(this.timer);
