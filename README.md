@@ -1,23 +1,20 @@
-# Projet3 OpenClassrooms
-## Concevoir une carte interactive de location de vélos
+# OpenClassrooms Project 3
+## Design an interactive bike rental map
 
-### Projet En Cours :ballot_box_with_check:
+### Project In Progress :ballot_box_with_check:
+
 https://rentabike.kevinallioli.com/
 
-### Énoncé
+### Statement
+You have to develop an application simulating the reservation of bicycles (Bicloo) in Nantes (France). These bikes are distributed in
+many stations in the city. The user must be able to book one from his browser (provided that he bikes are still available at the station !). 
+The reservation will be temporarily saved on the visitor's browser.
+You will develop the application entirely in JavaScript by displaying a map using the GoogleMaps API with the list of bike rental stations available in the city of Nantes.
+The JavaScript code must be entirely designed in object-oriented programming.
 
-Vous devez développer une application simulant la réservation de vélos (Bicloo) dans Nantes. Ces vélos sont répartis dans 
-de nombreuses stations dans la ville. L'utilisateur doit pouvoir en réserver un depuis son navigateur (à condition qu'il 
-reste des vélos disponibles à la station !). La réservation sera temporairement enregistrée sur le navigateur du visiteur.
+### For this project I used:
 
-Vous développerez l'application entièrement en JavaScript en affichant une carte à l'aide de l’API GoogleMaps avec la 
-liste des stations de location de vélos disponibles dans la ville de Nantes.
-
-Le code JavaScript doit entièrement être conçu en programmation orientée objet. 
-
-### Pour ce projet j'ai utilisé:
-
-- Javascript orienté objet
-- ES5 et ES6
+- Object oriented JavaScript
+- ES5 and ES6
 - AJAX
-- Utilisation de l'API GoogleMaps, l'API JCDecaux, l'API HTML5 Canvas, l'API WebStorage
+- Using the GoogleMaps API, JCDecaux API, HTML5 Canvas API, WebStorage API
