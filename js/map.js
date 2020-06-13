@@ -5,6 +5,8 @@ class bikeMap {
 		this.i;
 		this.map=map;
 		this.initMap();
+		this.stationNameFull;
+		this.stationNameCut;
 	}
 
 	initMap() {
@@ -27,12 +29,12 @@ class bikeMap {
 					stationBikeAvailable: this.data[this.i].available_bikes,
 					stationBanking: this.data[this.i].banking
 				});
+				console.log(this.marker)
 	
 				this.marker.addListener("click", ()=> {
-	
-					this.stationNameFull = this.marker.stationName;
-					this.stationNameCut = this.stationNameFull.split('-');
-					document.getElementById("station-name").innerHTML = this.stationNameCut[1];
+					console.log(this.marker);
+				
+					document.getElementById("station-name").innerHTML = this.marker.stationName;
 	
 					if (this.marker.stationStatus == 'OPEN') {
 						document.getElementById("station-status").innerHTML = 'ouverte';
@@ -71,4 +73,3 @@ class bikeMap {
 		this.ajax.send();
 	}
 }
-
