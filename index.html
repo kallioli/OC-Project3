@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-<html>
   <head>
     <title>Bicloo - Le service de location de vélo de la ville de Nantes</title>
     <meta name="viewport" content="initial-scale=1.0">
@@ -167,7 +166,7 @@
             <canvas id="blank" width="300" height="200"></canvas>
 
             <div class="form-container">
-              <form action="" method="get" class="reserve-form">
+              <form action="#" method="get" class="reserve-form">
                 <div class="form-name">
                   <label for="name">Nom :</label>
                   <input type="text" name="name" id="name" placeholder="Entrer votre nom..." required>
@@ -177,7 +176,7 @@
                   <input type="text" name="prenom" id="prenom" placeholder="Entrer votre prénom..." required>
                 </div>
                 <div class="btn-control">
-                  <button class="canvas-btn-reserve" id="sig-submitBtn"><a href="#valid-section">Réserver</a></button>
+                  <button class="canvas-btn-reserve" id="sig-submitBtn" onclick="window.location.href='#valid-section';">Réserver</button>
                   <button class="canvas-btn-clear" id="sig-clearBtn">Effacer</button>
                 </div>
               </form>
@@ -210,7 +209,7 @@
           </div>
           <div class="contact-container">
             <div class="contact-container-left">
-              <form action="" method="POST">
+              <form action="#" method="POST">
                 <div class="row">
                   <div class="contact-container-left-submodule">
                     <input type="text" name="contact-name" id="contact-name" required>
@@ -237,7 +236,7 @@
               </form>
             </div>
             <div class="contact-container-right">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5256.326901502349!2d1.964189!3d48.79785900000001!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e683987f034053%3A0xfe6ab8791f8dc7bc!2sJC%20Decaux!5e0!3m2!1sfr!2sus!4v1591636031898!5m2!1sfr!2sus" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5256.326901502349!2d1.964189!3d48.79785900000001!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e683987f034053%3A0xfe6ab8791f8dc7bc!2sJC%20Decaux!5e0!3m2!1sfr!2sus!4v1591636031898!5m2!1sfr!2sus" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
             </div>
           </div>
         </div>
@@ -254,11 +253,11 @@
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaUxOoLfXI3uZyJFWi4dz-ed_GaFGf5AY&callback=initBikeMap" async defer></script>
     <script src="js/mobile.js"></script>
-    <script type="text/javascript" src="js/slider.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
-    <script type="text/javascript" src="js/map.js"></script>
-    <script type="text/javascript" src="js/canvas.js"></script>
-    <script type="text/javascript" src="js/reservation.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/canvas.js"></script>
+    <script src="js/reservation.js"></script>
     
   </body>
 </html>
