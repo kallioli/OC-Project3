@@ -7,7 +7,6 @@ class bikeMap {
 		this.initMap(nameDiv,nbMarker);
 	}
 	
-	
 	addinfoMarker(vlat,vlng,map,stationId,stationName,stationAddress,stationStatus,stationTotalStand,stationStandAvailable,stationBikeAvailable,stationBanking){
 		let marker = new google.maps.Marker({
 			position: {lat: vlat, lng: vlng},

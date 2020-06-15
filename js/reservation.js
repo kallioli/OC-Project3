@@ -96,4 +96,5 @@ class Reservation{
     }
 }
 
+// New instance of Reservation Class
 let main = new Reservation(20);
