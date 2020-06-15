@@ -324,7 +324,7 @@ padding: 0 15px;
 .station-btn-reserve {
   display: block;
   border: 1px solid;
-  width: fit-content;
+  width: min-content;
   margin: 20px auto;
   padding: 5px 10px;
   background-color: #f07826;
@@ -542,7 +542,7 @@ margin: 0 0 5px 0;
 .btn-send {
   display: block;
   border: 1px solid;
-  width: fit-content;
+  width: min-content;
   margin: 10px 0 0 0;
   padding: 5px 10px;
   background-color: #f07826;
