@@ -124,4 +124,4 @@
       clearCanvas();
     }, false);
   
-  })();
+  })(); 
