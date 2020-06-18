@@ -122,6 +122,5 @@
     var submitBtn = document.getElementById("sig-submitBtn");
     clearBtn.addEventListener("click", function(e) {
       clearCanvas();
-    }, false);
-  
-  })(); 
+    }, false);  
+})(); 

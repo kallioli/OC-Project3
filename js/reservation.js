@@ -18,15 +18,13 @@ class Reservation{
 
         // Check if there is a valid session in the SessionStorage API
         if (this.sAddress && this.sStationName && this.sEndDate){
-            console.log('Valid session found', this.sEndDate);
+            
             const now = new Date().getTime();
             if (this.sEndDate <= now){
                 sessionStorage.clear();
             }else{
                 this.startTimer(this.sEndDate);
             }
-        } else {
-            console.log('Valid session not found');
         }
 
         // Check if name and firstname are in LocalStorage API
