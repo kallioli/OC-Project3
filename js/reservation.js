@@ -1,6 +1,6 @@
 class Reservation{
 
-    constructor(timeReservation){
+    constructor(timeReservation) {
         this.nom = document.getElementById('name');
         this.prenom = document.getElementById('prenom');
         this.lnom = localStorage.getItem('nom');
@@ -18,11 +18,15 @@ class Reservation{
 
         // Check if there is a valid session in the SessionStorage API
         if (this.sAddress && this.sStationName && this.sEndDate){
-            if (this.sEndDate >= new Date().getTime){
+            console.log('Valid session found', this.sEndDate);
+            const now = new Date().getTime();
+            if (this.sEndDate <= now){
                 sessionStorage.clear();
             }else{
                 this.startTimer(this.sEndDate);
             }
+        } else {
+            console.log('Valid session not found');
         }
 
         // Check if name and firstname are in LocalStorage API
@@ -30,7 +34,6 @@ class Reservation{
             this.nom.value=this.lnom;
             this.prenom.value=this.lprenom;
         }
-        this.storeData();
 
         // Reservation validation button
         document.getElementById('sig-submitBtn').addEventListener('click', (e)=> {
@@ -81,9 +84,9 @@ class Reservation{
         }else if(this.nom.value=="" || this.prenom.value==""){
             alert ('Entrer votre nom ou prénom');
         }else{
-            this.storeData();
             this.endDate = new Date().getTime()+this.timeReservation*60*1000;
             this.startTimer(this.endDate);
+            this.storeData();
         }
     }
     
