@@ -5,12 +5,17 @@ class bikeMap {
 		this.i;
 		this.map;
 		this.initMap(nameDiv,nbMarker);
+		this.icon;
+		this.greenIcon = "http://maps.google.com/mapfiles/ms/icons/green-dot.png";
+		this.redIcon = "http://maps.google.com/mapfiles/ms/icons/red-dot.png";
+		this.orangeIcon = "http://maps.google.com/mapfiles/ms/icons/orange-dot.png";
 	}
 	
-	addinfoMarker(vlat,vlng,map,stationId,stationName,stationAddress,stationStatus,stationTotalStand,stationStandAvailable,stationBikeAvailable,stationBanking){
+	addinfoMarker(vlat,vlng,map,stationId,stationName,stationAddress,stationStatus,stationTotalStand,stationStandAvailable,stationBikeAvailable,stationBanking,icon){
 		let marker = new google.maps.Marker({
 			position: {lat: vlat, lng: vlng},
 			map: map,
+			icon: icon,
 			stationId: stationId,
 			stationName: stationName,
 			stationAddress: stationAddress,
@@ -69,13 +74,20 @@ class bikeMap {
 		this.ajax.open("GET",this.url,true);
 		this.ajax.addEventListener("load", ()=>{
 			this.data = JSON.parse(this.ajax.responseText);
+			console.log(this.data);
 			if (nbMarker == -1){
 				nbMarker = this.data.length;
 			}
 			for (this.i=0; this.i < nbMarker ; this.i++){
-				
-			this.addinfoMarker(	this.data[this.i].position.lat,this.data[this.i].position.lng,this.map,this.data[this.i].number,this.data[this.i].name,this.data[this.i].address,this.data[this.i].status,
-			this.data[this.i].bike_stands,this.data[this.i].available_bike_stands,this.data[this.i].available_bikes,this.data[this.i].banking);
+				if (this.data[this.i].available_bikes > 10) {
+					this.icon = this.greenIcon;
+				} else if (this.data[this.i].available_bikes <= 0) {
+					this.icon = this.redIcon;
+				} else {
+					this.icon = this.orangeIcon;
+				}
+				this.addinfoMarker(	this.data[this.i].position.lat,this.data[this.i].position.lng,this.map,this.data[this.i].number,this.data[this.i].name,this.data[this.i].address,this.data[this.i].status,
+				this.data[this.i].bike_stands,this.data[this.i].available_bike_stands,this.data[this.i].available_bikes,this.data[this.i].banking,this.icon);
 			}
 		});
 
