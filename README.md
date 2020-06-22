@@ -3,7 +3,7 @@
 
 ### Project In Progress :ballot_box_with_check:
 
-https://rentabike.kevinallioli.com/
+https://bicloo.kevinallioli.com/
 
 ### Statement
 You have to develop an application simulating the reservation of bicycles (Bicloo) in Nantes (France). These bikes are distributed in
