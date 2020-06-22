@@ -64,6 +64,26 @@
         margin-top: 0;
     }
 
+    .header-title h1 {
+        font-size: 2em;
+        margin-bottom: 15px;
+    }
+
+    .header-title h2 {
+        font-weight: 300;
+        font-size: 1.5em;
+        margin-top: 15px;
+    }
+
+    .header-btn {
+        margin: 100px 0 0 0;
+    }
+
+    .header-btn a {
+        padding: 15px;
+        font-size: 1em;
+    }
+
     .slide {
         flex-direction: column;
     }
