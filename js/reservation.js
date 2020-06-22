@@ -88,7 +88,12 @@ class Reservation{
             this.endDate = new Date().getTime()+this.timeReservation*60*1000;
             this.startTimer(this.endDate);
             this.storeData();
+
         }
+    }
+
+    actualizeNumber(){
+        
     }
     
     // function that cancels a reservation
