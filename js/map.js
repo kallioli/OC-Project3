@@ -6,9 +6,9 @@ class bikeMap {
 		this.map;
 		this.initMap(nameDiv,nbMarker);
 		this.icon;
-		this.greenIcon = "http://maps.google.com/mapfiles/ms/icons/green-dot.png";
-		this.redIcon = "http://maps.google.com/mapfiles/ms/icons/red-dot.png";
-		this.orangeIcon = "http://maps.google.com/mapfiles/ms/icons/orange-dot.png";
+		this.greenIcon = "https://maps.google.com/mapfiles/ms/icons/green-dot.png";
+		this.redIcon = "https://maps.google.com/mapfiles/ms/icons/red-dot.png";
+		this.orangeIcon = "https://maps.google.com/mapfiles/ms/icons/orange-dot.png";
 	}
 	
 	addinfoMarker(vlat,vlng,map,stationId,stationName,stationAddress,stationStatus,stationTotalStand,stationStandAvailable,stationBikeAvailable,stationBanking,icon){
