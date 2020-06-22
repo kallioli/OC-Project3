@@ -13,6 +13,7 @@ class Reservation{
         this.sAddress = sessionStorage.getItem('address');
         this.sStationName = sessionStorage.getItem('stationName');
         this.sEndDate = sessionStorage.getItem('endDate');
+        this.bikeAvailable = document.getElementById('station-available-bike');
         this.timer; 
         this.timeReservation = timeReservation;
 
@@ -77,7 +78,9 @@ class Reservation{
 
     // Function that verify and validate a reservation
     initReservation(){
-        if(this.canvas.toDataURL() == document.getElementById('blank').toDataURL()){
+        if (this.bikeAvailable.innerHTML == 0){
+            alert('Plus de vélos disponibles à cette station!');
+        }else if(this.canvas.toDataURL() == document.getElementById('blank').toDataURL()){
             alert('Signer pour valider votre réservation!');
         }else if(this.nom.value=="" || this.prenom.value==""){
             alert ('Entrer votre nom ou prénom');
