@@ -51,6 +51,13 @@ class bikeMap {
 			document.getElementById("station-total-stand").innerHTML = marker.stationTotalStand;
 			document.getElementById('info-container').style.width = "300px";
 			document.getElementById('station-details').style.display = "block";
+
+			if (marker.stationBikeAvailable == 0) {
+				document.getElementById("station-btn").className = "station-btn-reserve-disable";
+				document.getElementById("canvas-section").style.display = "none";
+			} else {
+				document.getElementById("station-btn").className = "station-btn-reserve";
+			}
 		});
 	
 		document.getElementById("close").addEventListener('click', (e)=> {
@@ -59,11 +66,11 @@ class bikeMap {
 		});
 	
 		document.getElementById("station-btn").addEventListener('click', (e)=> {
-		document.getElementById("canvas-section").style.display = "block";
-	});
+			document.getElementById("canvas-section").style.display = "block";
+		});
+	
+	};
 		
-}
-
 	initMap(nameDiv,nbMarker) {
 		this.map = new google.maps.Map(document.getElementById(nameDiv), {
 			zoom: 14,
@@ -94,5 +101,5 @@ class bikeMap {
 	this.ajax.send();
 
 	}
-	
+
 }

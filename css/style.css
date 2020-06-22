@@ -336,6 +336,19 @@ padding: 0 15px;
   background-color: black;
 }
 
+.station-btn-reserve-disable {
+  display: block;
+  border: 1px solid;
+  width: min-content;
+  margin: 20px auto;
+  padding: 5px 10px;
+  background-color: grey;
+  color: white;
+  text-decoration: none;
+  cursor: default;
+  pointer-events: none;  
+}
+
 /* Canvas Section */
 
 #canvas-section {
