@@ -80,20 +80,16 @@ class Reservation{
     initReservation(){
         if (this.bikeAvailable.innerHTML == 0){
             alert('Plus de vélos disponibles à cette station!');
-        }else if(this.canvas.toDataURL() == document.getElementById('blank').toDataURL()){
+        } else if (this.canvas.toDataURL() == document.getElementById('blank').toDataURL()){
             alert('Signer pour valider votre réservation!');
-        }else if(this.nom.value=="" || this.prenom.value==""){
+        } else if (this.nom.value=="" || this.prenom.value==""){
             alert ('Entrer votre nom ou prénom');
-        }else{
+        } else {
             this.endDate = new Date().getTime()+this.timeReservation*60*1000;
             this.startTimer(this.endDate);
             this.storeData();
 
         }
-    }
-
-    actualizeNumber(){
-        
     }
     
     // function that cancels a reservation
