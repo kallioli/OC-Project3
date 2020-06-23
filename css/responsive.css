@@ -100,6 +100,10 @@
         font-size: 1.4em;
     }
 
+    #canvas-section .container {
+        max-width: unset;
+    }
+
     .contact-container {
         flex-direction: column;
     }
@@ -107,6 +111,10 @@
     .contact-container-left {
         width: 100%;
         margin: unset;
+    }
+
+    #contact-name {
+        margin: 0 0 5px 0;
     }
 
     #contact-email {

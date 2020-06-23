@@ -17,7 +17,7 @@ class bikeMap {
 			map: map,
 			icon: icon,
 			stationId: stationId,
-			stationName: stationName,
+			stationNameFull: stationName,
 			stationAddress: stationAddress,
 			stationStatus: stationStatus,
 			stationTotalStand: stationTotalStand,
@@ -27,8 +27,7 @@ class bikeMap {
 		});
 			
 		google.maps.event.addListener(marker,"click", (e)=> {
-
-			marker.stationName = marker.stationName.split('-');
+			marker.stationName = marker.stationNameFull.split('-');
 			document.getElementById("station-name").innerHTML = marker.stationName[1];
 	
 			if (marker.stationStatus == 'OPEN') {
@@ -81,7 +80,6 @@ class bikeMap {
 		this.ajax.open("GET",this.url,true);
 		this.ajax.addEventListener("load", ()=>{
 			this.data = JSON.parse(this.ajax.responseText);
-			console.log(this.data);
 			if (nbMarker == -1){
 				nbMarker = this.data.length;
 			}
