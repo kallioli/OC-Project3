@@ -184,11 +184,13 @@
       <section id="canvas-section" class="colored-section">
         <div class="container">
           <div id="canvas-container" class="canvas-container">
-            <div id="signature"></div>
+            <div id="signature"></div> 
+            <!-- <canvas id="sig-canvas"></canvas>
+            <canvas id="blank"></canvas>-->
 
 
             <div class="form-container">
-              <form action="#" method="get" class="reserve-form">
+              <form action="#" method="get" class="reserve-form" id="reservationForm">
                 <div class="form-name">
                   <label for="name">Nom :</label>
                   <input type="text" name="name" id="name" placeholder="Entrer votre nom..." required>
@@ -199,7 +201,7 @@
                 </div>
                 <div class="btn-control">
                   <button class="canvas-btn-reserve" id="sig-submitBtn" onclick="window.location.href='#valid-section';">Réserver</button>
-                  <button class="canvas-btn-clear" id="sig-clearBtn">Effacer</button>
+                  <button class="canvas-btn-clear" id="sig-clearBtn" onclick="window.myGlobalVariables.signature.clear()">Effacer</button>
                 </div>
               </form>
             </div>
@@ -280,11 +282,6 @@
     <script src="js/slider.js"></script>
     <script src="js/signature.js"></script>
     <script src="js/reservation.js"></script>
-    <script>
-    window.addEventListener('load', () => {
-      let signature = new Signature('signature',300, 200);
-    });
-  </script>
     
   </body>
 </html>

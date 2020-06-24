@@ -22,10 +22,10 @@ class bikeMap {
 			stationStatus: stationStatus,
 			stationTotalStand: stationTotalStand,
 			stationStandAvailable: stationStandAvailable,
-			stationBikeAvailable: stationBikeAvailable,
+			stationBikeAvailable: (stationId == sessionStorage.getItem('stationId')) ? stationBikeAvailable - 1 : stationBikeAvailable,
 			stationBanking: stationBanking
 		});
-			
+
 		google.maps.event.addListener(marker,"click", (e)=> {
 			marker.stationName = marker.stationNameFull.split('-');
 			document.getElementById("station-name").innerHTML = marker.stationName[1];
@@ -45,7 +45,7 @@ class bikeMap {
 				document.getElementById("station-banking").style.color = "grey";
 			}
 	
-			document.getElementById("station-address").innerHTML = marker.stationAddress;
+			document.getElementById("station-address").innerHTML = marker.stationId;
 			document.getElementById("station-available-bike").innerHTML = marker.stationBikeAvailable;
 			document.getElementById("station-total-stand").innerHTML = marker.stationTotalStand;
 			document.getElementById('info-container').style.width = "300px";
@@ -66,6 +66,7 @@ class bikeMap {
 	
 		document.getElementById("station-btn").addEventListener('click', (e)=> {
 			document.getElementById("canvas-section").style.display = "block";
+			window.myGlobalVariables.stationId = marker.stationId;
 		});
 	
 	};

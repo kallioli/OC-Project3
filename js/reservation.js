@@ -6,15 +6,15 @@ class Reservation{
         this.lnom = localStorage.getItem('nom');
         this.lprenom = localStorage.getItem('prenom');
         this.contentTimer = document.getElementById('timer');
-        this.canvas = document.getElementById("sig-canvas");
         this.contAddress = document.getElementById("cont-address");
         this.contStation = document.getElementById('cont-nameStation');
         this.contNameUser = document.getElementById('cont-nameUser')
+        this.bikeAvailable = document.getElementById('station-available-bike');
         this.sAddress = sessionStorage.getItem('address');
         this.sStationName = sessionStorage.getItem('stationName');
         this.sEndDate = sessionStorage.getItem('endDate');
-        this.bikeAvailable = document.getElementById('station-available-bike');
-        this.timer; 
+        this.sbikeAvailable = sessionStorage.getItem('bikeAvailable');
+        this.timer = null; 
         this.timeReservation = timeReservation;
 
         // Check if there is a valid session in the SessionStorage API
@@ -42,12 +42,18 @@ class Reservation{
 
         // Cancel reservation button
         document.getElementById('btn-cancel').addEventListener('click', (e)=>{
+            e.preventDefault();
             this.cancelReservation();
         });
     }
 
     // Function that initiates the timer
     startTimer(enddate){
+        this.contStation.innerHTML = this.sStationName;
+        this.contAddress.innerHTML = this.sAddress;
+        this.contNameUser.innerHTML = this.lnom+' '+this.lprenom;
+        document.getElementById('valid-section').style.display = "block";
+        document.getElementById('canvas-section').style.display = "none";
         this.timer = setInterval(()=> {
             this.now = new Date().getTime();
             this.delta = enddate - this.now
@@ -56,13 +62,9 @@ class Reservation{
             if(this.seconds<10){
                 this.seconds='0'+this.seconds;
             }
-            this.contStation.innerHTML = this.sStationName;
-            this.contAddress.innerHTML = this.sAddress;
-            this.contNameUser.innerHTML = this.lnom+' '+this.lprenom;
             this.contentTimer.innerHTML = 'Temps restant : '+this.minutes+':'+this.seconds;
-            document.getElementById('valid-section').style.display = "block";
-            document.getElementById('canvas-section').style.display = "none";
-        })
+        });
+        setTimeout(this.cancelReservation, this.timeReservation * 60 * 1000);
     }
 
     // Function that manage LocalStorage API and SessionStorage API 
@@ -73,6 +75,8 @@ class Reservation{
         //session strorage
         sessionStorage.setItem('stationName',document.getElementById('station-name').innerHTML);
         sessionStorage.setItem('address',document.getElementById('station-address').innerHTML);
+        sessionStorage.setItem('bikeAvailable',this.bikeAvailable.innerHTML);
+        sessionStorage.setItem('stationId', window.myGlobalVariables.stationId);
         sessionStorage.setItem('endDate', this.endDate);
     }
 
@@ -80,7 +84,7 @@ class Reservation{
     initReservation(){
         if (this.bikeAvailable.innerHTML == 0){
             alert('Plus de vélos disponibles à cette station!');
-        } else if (this.canvas.toDataURL() == document.getElementById('blank').toDataURL()){
+        } else if (window.myGlobalVariables.signature.empty){
             alert('Signer pour valider votre réservation!');
         } else if (this.nom.value=="" || this.prenom.value==""){
             alert ('Entrer votre nom ou prénom');
@@ -88,7 +92,8 @@ class Reservation{
             this.endDate = new Date().getTime()+this.timeReservation*60*1000;
             this.startTimer(this.endDate);
             this.storeData();
-
+            window.myGlobalVariables.signature.clear();
+            
         }
     }
     
