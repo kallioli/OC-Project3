@@ -11,6 +11,10 @@
     #top {
         padding-top: unset;
     }
+
+    a.anchor {
+        top: 0;
+    }
  
     .mobile-nav {
         overflow: hidden;
@@ -136,6 +140,10 @@
 
     #top {
         padding-top: unset;
+    }
+
+    a.anchor {
+        top: 0;
     }
 
     .mobile-nav {
