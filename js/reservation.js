@@ -14,6 +14,7 @@ class Reservation{
         this.sStationName = sessionStorage.getItem('stationName');
         this.sEndDate = sessionStorage.getItem('endDate');
         this.sbikeAvailable = sessionStorage.getItem('bikeAvailable');
+        this.activeReservation = false;
         this.timer = null; 
         this.timeReservation = timeReservation;
 
@@ -52,6 +53,7 @@ class Reservation{
         this.contStation.innerHTML = this.sStationName;
         this.contAddress.innerHTML = this.sAddress;
         this.contNameUser.innerHTML = this.lnom+' '+this.lprenom;
+        this.activeReservation = true;
         document.getElementById('valid-section').style.display = "block";
         document.getElementById('canvas-section').style.display = "none";
         this.timer = setInterval(()=> {
@@ -65,6 +67,9 @@ class Reservation{
             this.contentTimer.innerHTML = 'Temps restant : '+this.minutes+':'+this.seconds;
         });
         setTimeout(this.cancelReservation, this.timeReservation * 60 * 1000);
+        document.getElementById('alert-active-reservation').style.display = 'block';
+        document.getElementById("station-btn").className = "station-btn-reserve-disable";
+        
     }
 
     // Function that manage LocalStorage API and SessionStorage API 
@@ -77,6 +82,7 @@ class Reservation{
         sessionStorage.setItem('address',document.getElementById('station-address').innerHTML);
         sessionStorage.setItem('bikeAvailable',this.bikeAvailable.innerHTML);
         sessionStorage.setItem('stationId', window.myGlobalVariables.stationId);
+        sessionStorage.setItem('activeReservation', this.activeReservation);
         sessionStorage.setItem('endDate', this.endDate);
     }
 
@@ -103,6 +109,8 @@ class Reservation{
         clearInterval(this.timer);
         document.getElementById('valid-section').style.display = "none";
         document.getElementById('canvas-section').style.display = "none";
+        document.getElementById('alert-active-reservation').style.display = 'none';
+        document.getElementById("station-btn").className = "station-btn-reserve";
     }
 }
 

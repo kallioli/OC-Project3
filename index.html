@@ -66,7 +66,7 @@
             <h1>Découvrer la liberté avec bicloo</h1>
             <h2>Une envie, un déplacement, pensez au bicloo !</h2>
             <div class="header-btn">
-              <a href="#map-section">Réserver maintenant</a>
+              <a href="#reserver">Réserver maintenant</a>
             </div>
           </div>
         </div>
@@ -137,7 +137,7 @@
           <p>Dans chaque station, une borne permet d'acquérir une carte (courte durée) payable par carte bancaire. Le ticket 1 trajet coûte 1,80 € et la formule 24 heures 4 €. L'abonnement longue durée coûte 31 €.</p>
         </div>
         <div class="cta-icon">
-          <a href="#map-section"><i class="fas fa-chevron-circle-down"></i></a>
+          <a href="#reserver"><i class="fas fa-chevron-circle-down"></i></a>
         </div>
       </section>
 
@@ -173,7 +173,8 @@
                 <span id="station-banking">
                   <i class="far fa-credit-card"></i>
                 </span>
-                <a href="#canvas-section" id="station-btn" class="station-btn-reserve">Réserver</a>
+                <a href="#canvas-head" id="station-btn" class="station-btn-reserve">Réserver</a>
+                <span id="alert-active-reservation">Vous avez déja une réservation en cours !</span>
               </div>
             </div>
           </div>
@@ -181,14 +182,11 @@
       </section>
 
       <!-- Canvas Section -->
+      <a class="anchor" id="canvas-head"></a>
       <section id="canvas-section" class="colored-section">
         <div class="container">
           <div id="canvas-container" class="canvas-container">
-            <div id="signature"></div> 
-            <!-- <canvas id="sig-canvas"></canvas>
-            <canvas id="blank"></canvas>-->
-
-
+            <div id="signature"></div>
             <div class="form-container">
               <form action="#" method="get" class="reserve-form" id="reservationForm">
                 <div class="form-name">

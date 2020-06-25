@@ -6,6 +6,7 @@ class bikeMap {
 		this.map;
 		this.initMap(nameDiv,nbMarker);
 		this.icon;
+		this.activeReservation = sessionStorage.getItem('activeReservation');
 		this.greenIcon = "https://maps.google.com/mapfiles/ms/icons/green-dot.png";
 		this.redIcon = "https://maps.google.com/mapfiles/ms/icons/red-dot.png";
 		this.orangeIcon = "https://maps.google.com/mapfiles/ms/icons/orange-dot.png";
@@ -45,7 +46,7 @@ class bikeMap {
 				document.getElementById("station-banking").style.color = "grey";
 			}
 	
-			document.getElementById("station-address").innerHTML = marker.stationId;
+			document.getElementById("station-address").innerHTML = marker.stationAddress;
 			document.getElementById("station-available-bike").innerHTML = marker.stationBikeAvailable;
 			document.getElementById("station-total-stand").innerHTML = marker.stationTotalStand;
 			document.getElementById('info-container').style.width = "300px";
@@ -57,11 +58,18 @@ class bikeMap {
 			} else {
 				document.getElementById("station-btn").className = "station-btn-reserve";
 			}
+
+			if (this.activeReservation) {
+				document.getElementById("station-btn").className = "station-btn-reserve-disable";
+				document.getElementById("alert-active-reservation").style.display = "block";
+			} else {
+				document.getElementById("station-btn").className = "station-btn-reserve";
+			}
 		});
 	
 		document.getElementById("close").addEventListener('click', (e)=> {
-		document.getElementById('info-container').style.width = "0px";
-		document.getElementById('station-details').style.display = "none";
+			document.getElementById('info-container').style.width = "0px";
+			document.getElementById('station-details').style.display = "none";
 		});
 	
 		document.getElementById("station-btn").addEventListener('click', (e)=> {

@@ -64,6 +64,7 @@ class Signature {
       })
     }
 
+    // Function that initiate the canvas context
     init() {
       this.ctx = this.canvas.getContext("2d");
       this.ctx.strokeStyle = "#222222";
@@ -74,7 +75,8 @@ class Signature {
       };
       this.empty = true;
     }
-
+    
+    //Function that clear the canvas content
     clear() {
       this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
       this.canvas.width = this.canvas.width;

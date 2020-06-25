@@ -399,6 +399,13 @@ padding: 0 15px;
   pointer-events: none;  
 }
 
+#alert-active-reservation {
+  display: none;
+  color: red;
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
 /* Canvas Section */
 
 #canvas-section {
