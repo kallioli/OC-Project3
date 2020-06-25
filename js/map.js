@@ -12,7 +12,8 @@ class bikeMap {
 		this.orangeIcon = "https://maps.google.com/mapfiles/ms/icons/orange-dot.png";
 	}
 	
-	addinfoMarker(vlat,vlng,map,stationId,stationName,stationAddress,stationStatus,stationTotalStand,stationStandAvailable,stationBikeAvailable,stationBanking,icon){
+	// Function that manage stations informations from JCDecaux API and display them on map section  
+	addinfoMarker(vlat,vlng,map,stationId,stationName,stationAddress,stationStatus,stationTotalStand,stationStandAvailable,stationBikeAvailable,stationBanking,icon) {
 		let marker = new google.maps.Marker({
 			position: {lat: vlat, lng: vlng},
 			map: map,
@@ -27,6 +28,7 @@ class bikeMap {
 			stationBanking: stationBanking
 		});
 
+		// Event management when click on markers
 		google.maps.event.addListener(marker,"click", (e)=> {
 			marker.stationName = marker.stationNameFull.split('-');
 			document.getElementById("station-name").innerHTML = marker.stationName[1];
@@ -38,7 +40,8 @@ class bikeMap {
 				document.getElementById("station-status").innerHTML = 'fermée';
 				document.getElementById("station-status").className = 'station-close';
 			}
-	
+			
+			// Check if card payment option is available on station
 			this.banking = marker.stationBanking;
 			if (this.banking) {
 				document.getElementById("station-banking").style.color = "black";
@@ -52,6 +55,7 @@ class bikeMap {
 			document.getElementById('info-container').style.width = "300px";
 			document.getElementById('station-details').style.display = "block";
 
+			// Check if there is a suficient number of bike in station for a new reservation
 			if (marker.stationBikeAvailable == 0) {
 				document.getElementById("station-btn").className = "station-btn-reserve-disable";
 				document.getElementById("canvas-section").style.display = "none";
@@ -59,6 +63,7 @@ class bikeMap {
 				document.getElementById("station-btn").className = "station-btn-reserve";
 			}
 
+			// Check if there is an active reservation on session storage API and lock the application to prevent a new reservation
 			if (this.activeReservation) {
 				document.getElementById("station-btn").className = "station-btn-reserve-disable";
 				document.getElementById("alert-active-reservation").style.display = "block";
@@ -66,7 +71,8 @@ class bikeMap {
 				document.getElementById("station-btn").className = "station-btn-reserve";
 			}
 		});
-	
+		
+		// Display station informations
 		document.getElementById("close").addEventListener('click', (e)=> {
 			document.getElementById('info-container').style.width = "0px";
 			document.getElementById('station-details').style.display = "none";
@@ -78,13 +84,14 @@ class bikeMap {
 		});
 	
 	};
-		
+	
+	// Function that initiate the google map and add markers on this
 	initMap(nameDiv,nbMarker) {
 		this.map = new google.maps.Map(document.getElementById(nameDiv), {
 			zoom: 14,
 			center: {lat: 47.2173, lng: -1.5534}
 		});
-		 
+		// AJAX request from JCDecaux API  
 		this.ajax = new XMLHttpRequest();
 		this.ajax.open("GET",this.url,true);
 		this.ajax.addEventListener("load", ()=>{

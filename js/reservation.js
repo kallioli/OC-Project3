@@ -31,8 +31,8 @@ class Reservation{
 
         // Check if name and firstname are in LocalStorage API
         if (this.lnom && this.lprenom) {
-            this.nom.value=this.lnom;
-            this.prenom.value=this.lprenom;
+            this.nom.value = this.lnom;
+            this.prenom.value = this.lprenom;
         }
 
         // Reservation validation button
@@ -69,7 +69,6 @@ class Reservation{
         setTimeout(this.cancelReservation, this.timeReservation * 60 * 1000);
         document.getElementById('alert-active-reservation').style.display = 'block';
         document.getElementById("station-btn").className = "station-btn-reserve-disable";
-        
     }
 
     // Function that manage LocalStorage API and SessionStorage API 
@@ -99,7 +98,6 @@ class Reservation{
             this.startTimer(this.endDate);
             this.storeData();
             window.myGlobalVariables.signature.clear();
-            
         }
     }
     
