@@ -13,7 +13,6 @@ class Reservation{
         this.sAddress = sessionStorage.getItem('address');
         this.sStationName = sessionStorage.getItem('stationName');
         this.sEndDate = sessionStorage.getItem('endDate');
-        this.sbikeAvailable = sessionStorage.getItem('bikeAvailable');
         this.activeReservation = false;
         this.timer = null; 
         this.timeReservation = timeReservation;
@@ -46,6 +45,7 @@ class Reservation{
             e.preventDefault();
             this.cancelReservation();
         });
+
     }
 
     // Function that initiates the timer
@@ -54,8 +54,8 @@ class Reservation{
         this.contAddress.innerHTML = this.sAddress;
         this.contNameUser.innerHTML = this.lnom+' '+this.lprenom;
         this.activeReservation = true;
-        document.getElementById('valid-section').style.display = "block";
-        document.getElementById('canvas-section').style.display = "none";
+        document.getElementById('valid-section').style.display = 'block';
+        document.getElementById('canvas-section').style.display = 'none';
         this.timer = setInterval(()=> {
             this.now = new Date().getTime();
             this.delta = enddate - this.now
@@ -67,8 +67,6 @@ class Reservation{
             this.contentTimer.innerHTML = 'Temps restant : '+this.minutes+':'+this.seconds;
         });
         setTimeout(this.cancelReservation, this.timeReservation * 60 * 1000);
-        document.getElementById('alert-active-reservation').style.display = 'block';
-        document.getElementById("station-btn").className = "station-btn-reserve-disable";
     }
 
     // Function that manage LocalStorage API and SessionStorage API 
@@ -79,7 +77,6 @@ class Reservation{
         //session strorage
         sessionStorage.setItem('stationName',document.getElementById('station-name').innerHTML);
         sessionStorage.setItem('address',document.getElementById('station-address').innerHTML);
-        sessionStorage.setItem('bikeAvailable',this.bikeAvailable.innerHTML);
         sessionStorage.setItem('stationId', window.myGlobalVariables.stationId);
         sessionStorage.setItem('activeReservation', this.activeReservation);
         sessionStorage.setItem('endDate', this.endDate);
@@ -98,17 +95,29 @@ class Reservation{
             this.startTimer(this.endDate);
             this.storeData();
             window.myGlobalVariables.signature.clear();
+            document.getElementById('alert-active-reservation').style.display = 'block';
+            document.getElementById('station-btn').className = 'station-btn-reserve-disable';
+            this.bikeAvailable.innerHTML = this.bikeAvailable.innerHTML - 1;
+            let stationId = sessionStorage.getItem('stationId');
+            let marker = window.myGlobalVariables.markers[stationId];
+            marker.stationBikeAvailable--;
         }
     }
     
     // function that cancels a reservation
     cancelReservation(){
-        sessionStorage.clear();
         clearInterval(this.timer);
-        document.getElementById('valid-section').style.display = "none";
-        document.getElementById('canvas-section').style.display = "none";
+        document.getElementById('valid-section').style.display = 'none';
+        document.getElementById('canvas-section').style.display = 'none';
         document.getElementById('alert-active-reservation').style.display = 'none';
-        document.getElementById("station-btn").className = "station-btn-reserve";
+        document.getElementById('station-btn').className = 'station-btn-reserve';
+        let stationId = sessionStorage.getItem('stationId');
+        let marker = window.myGlobalVariables.markers[stationId];
+        marker.stationBikeAvailable++;
+        if (sessionStorage.getItem('stationId') == window.myGlobalVariables.stationId) {
+            this.bikeAvailable.innerHTML = parseInt(this.bikeAvailable.innerHTML) + 1;
+        }
+        sessionStorage.clear();
     }
 }
 

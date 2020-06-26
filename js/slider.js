@@ -5,27 +5,27 @@ class Slider {
     this.pause = document.getElementById('pause');
     this.isPause = false;
     this.i;
-    this.slides = document.getElementsByClassName("slide");
+    this.slides = document.getElementsByClassName('slide');
 
     this.showSlides(this.slideIndex);
 
     // Launch slides automatically
-    this.slider=setInterval(()=>{
+    this.slider=setInterval(()=> {
       this.next();
     },5000)
 
     // Play/Pause slider management
-    this.pause.addEventListener('click',(e)=>{
+    this.pause.addEventListener('click',(e)=> {
       e.preventDefault();
-      if(!this.isPause){
+      if (!this.isPause) {
         this.isPause=true;
         clearInterval(this.slider);
-        document.getElementById("btnPlayPause").className = 'fas fa-play-circle';
+        document.getElementById('btnPlayPause').className = 'fas fa-play-circle';
         
-      }else{
+      } else {
         this.isPause=false;
-        document.getElementById("btnPlayPause").className = 'fas fa-pause-circle';
-        this.slider=setInterval(()=>{
+        document.getElementById('btnPlayPause').className = 'fas fa-pause-circle';
+        this.slider=setInterval(()=> {
           this.next();
         },5000)
       }
@@ -33,12 +33,12 @@ class Slider {
     })
 
     // previous slide onclick
-    document.getElementById('prev').addEventListener('click',()=>{
+    document.getElementById('prev').addEventListener('click',()=> {
       this.prev();
     })
 
     // next slide onclick
-    document.getElementById('next').addEventListener('click',()=>{
+    document.getElementById('next').addEventListener('click',()=> {
       this.next();
     })
 
@@ -55,7 +55,6 @@ class Slider {
         this.next();
       }
     })
-
   }
 
   // Display the slider
@@ -67,9 +66,9 @@ class Slider {
       this.slideIndex = this.slides.length
     }
     for (this.i = 0; this.i < this.slides.length; this.i++) {
-      this.slides[this.i].style.display = "none";
+      this.slides[this.i].style.display = 'none';
     }
-    this.slides[this.slideIndex-1].style.display = "flex";
+    this.slides[this.slideIndex-1].style.display = 'flex';
   }
 
   // Previous slide function

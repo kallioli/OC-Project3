@@ -1,14 +1,15 @@
+// Class that manage hamburger menu
 class MobileMenu {
 
   constructor() {
-    this.x = document.getElementById("myLinks");
+    this.x = document.getElementById('myLinks');
   }
 
   myFunction() {
-    if (this.x.style.display === "block") {
-      this.x.style.display = "none";
+    if (this.x.style.display === 'block') {
+      this.x.style.display = 'none';
     } else {
-      this.x.style.display = "block";
+      this.x.style.display = 'block';
     }
   }
 }

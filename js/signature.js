@@ -11,13 +11,13 @@ class Signature {
     this.clearBtn = document.getElementById('sig-clearBtn');
 
     // Mouse events support
-    this.canvas.addEventListener("mousedown", (event)=> {
+    this.canvas.addEventListener('mousedown', (event)=> {
       this.lastMousePosition.x = event.offsetX;
       this.lastMousePosition.y = event.offsetY;
       this.isDrawing = true;
     })
 
-    this.canvas.addEventListener("mousemove", (event)=> {
+    this.canvas.addEventListener('mousemove', (event)=> {
       if (this.isDrawing) {
         this.ctx.moveTo(this.lastMousePosition.x, this.lastMousePosition.y);
         this.ctx.lineTo(event.offsetX, event.offsetY);
@@ -28,12 +28,12 @@ class Signature {
       }
     })
 
-    window.addEventListener("mouseup", (event)=>{
+    window.addEventListener('mouseup', (event)=>{
       this.isDrawing = false;      
     })
 
     // Touch events support
-    this.canvas.addEventListener("touchstart", (event)=> {
+    this.canvas.addEventListener('touchstart', (event)=> {
       if (event.target == this.canvas) {
         event.preventDefault();
       }
@@ -42,7 +42,7 @@ class Signature {
       this.isDrawing = true;
     })
 
-    this.canvas.addEventListener("touchmove", (event)=> {
+    this.canvas.addEventListener('touchmove', (event)=> {
       if (event.target == this.canvas) {
         event.preventDefault();
       }
@@ -56,7 +56,7 @@ class Signature {
       }
     })
 
-    this.canvas.addEventListener("touchend", (event)=> {
+    this.canvas.addEventListener('touchend', (event)=> {
       if (event.target == this.canvas) {
         event.preventDefault();
       }
@@ -66,8 +66,8 @@ class Signature {
 
   // Function that initiate the canvas context
   init() {
-    this.ctx = this.canvas.getContext("2d");
-    this.ctx.strokeStyle = "#222222";
+    this.ctx = this.canvas.getContext('2d');
+    this.ctx.strokeStyle = '#222222';
     this.ctx.lineWidth = 1;
     this.lastMousePosition = {
       x: 0,
