@@ -56,7 +56,6 @@ class bikeMap {
 			if (this.activeReservation) {
 				window.myGlobalVariables.active = true;
 			}
-
 			if (window.myGlobalVariables.active) {
 				document.getElementById('station-btn').className = 'station-btn-reserve-disable';
 				document.getElementById('alert-active-reservation').style.display = 'block';
@@ -65,23 +64,12 @@ class bikeMap {
 			} else {
 				document.getElementById('station-btn').className = 'station-btn-reserve';
 			}
-
-			// Check if there is a suficient number of bike in station for a new reservation
-			/*if (marker.stationBikeAvailable == 0) {
-				document.getElementById('station-btn').className = 'station-btn-reserve-disable';
-				document.getElementById('canvas-section').style.display = 'none';
-			} else {
-				document.getElementById('station-btn').className = 'station-btn-reserve';
-			}*/
-
 	
 			document.getElementById('station-address').innerHTML = marker.stationAddress;
 			document.getElementById('station-available-bike').innerHTML = marker.stationBikeAvailable;
 			document.getElementById('station-total-stand').innerHTML = marker.stationTotalStand;
 			document.getElementById('info-container').style.width = '300px';
 			document.getElementById('station-details').style.display = 'block';
-
-			
 			
 		});
 		

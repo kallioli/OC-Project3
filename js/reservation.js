@@ -124,7 +124,7 @@ class Reservation{
         }
         sessionStorage.clear();
         window.myGlobalVariables.active = false;
-        console.log(window.myGlobalVariables.active);
+        window.location.reload();
     }
 }
 
