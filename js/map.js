@@ -51,6 +51,29 @@ class bikeMap {
 			} else if (!this.banking) {
 				document.getElementById('station-banking').style.color = 'grey';
 			}
+			
+			// Check if there is an active reservation on session storage API and lock the application to prevent a new reservation
+			if (this.activeReservation) {
+				window.myGlobalVariables.active = true;
+			}
+
+			if (window.myGlobalVariables.active) {
+				document.getElementById('station-btn').className = 'station-btn-reserve-disable';
+				document.getElementById('alert-active-reservation').style.display = 'block';
+			} else if (marker.stationBikeAvailable == 0) {
+				document.getElementById('station-btn').className = 'station-btn-reserve-disable';
+			} else {
+				document.getElementById('station-btn').className = 'station-btn-reserve';
+			}
+
+			// Check if there is a suficient number of bike in station for a new reservation
+			/*if (marker.stationBikeAvailable == 0) {
+				document.getElementById('station-btn').className = 'station-btn-reserve-disable';
+				document.getElementById('canvas-section').style.display = 'none';
+			} else {
+				document.getElementById('station-btn').className = 'station-btn-reserve';
+			}*/
+
 	
 			document.getElementById('station-address').innerHTML = marker.stationAddress;
 			document.getElementById('station-available-bike').innerHTML = marker.stationBikeAvailable;
@@ -58,21 +81,7 @@ class bikeMap {
 			document.getElementById('info-container').style.width = '300px';
 			document.getElementById('station-details').style.display = 'block';
 
-			// Check if there is a suficient number of bike in station for a new reservation
-			if (marker.stationBikeAvailable == 0) {
-				document.getElementById('station-btn').className = 'station-btn-reserve-disable';
-				document.getElementById('canvas-section').style.display = 'none';
-			} else {
-				document.getElementById('station-btn').className = 'station-btn-reserve';
-			}
-
-			// Check if there is an active reservation on session storage API and lock the application to prevent a new reservation
-			if (this.activeReservation) {
-				document.getElementById('station-btn').className = 'station-btn-reserve-disable';
-				document.getElementById('alert-active-reservation').style.display = 'block';
-			} else {
-				document.getElementById('station-btn').className = 'station-btn-reserve';
-			}
+			
 			
 		});
 		
@@ -83,7 +92,7 @@ class bikeMap {
 		});
 	
 		document.getElementById('station-btn').addEventListener('click', (e)=> {
-			document.getElementById('canvas-section').style.display = 'block';
+				document.getElementById('canvas-section').style.display = 'block';
 		});
 	
 	};
