@@ -1,7 +1,7 @@
 # OpenClassrooms Project 3
 ## Design an interactive bike rental map
 
-### Project In Progress :ballot_box_with_check:
+### Validated Project :white_check_mark:
 
 https://bicloo.kevinallioli.com/
 
